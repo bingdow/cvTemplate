@@ -1,4 +1,5 @@
 @containerWidth: 960px;
+@SquareSize: 50px;
 html, body{
 	background: url("../img/grain.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
     font-family: "微軟正黑體","Microsoft JhengHei","LiHei Pro Medium",AppleGothic,"新細明體","PMingLiU",Dotum,Lucida Grande,Verdana Sans-serif;
@@ -44,18 +45,55 @@ blockquote {
         font-size:18px;
     }
 }
-.container {
-    padding: 5%;
-    margin-left: auto;
+div#navigation-title{
+    background: #C13832;
+    width: 100%;
+    height: @SquareSize;
+    position: fixed;
+    top:0;
+    text-align: center;
+   
+    a{
+        width: @SquareSize;
+        height: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        &:before, &:after{
+            content: "";
+            display: table;
+            line-height: 0;
+            clear: both;
+        }
+    }
+    img{
+        height: @SquareSize;
+        width: @SquareSize;
+    }
+}
+div#navigation-bar{
+}
+div.container {
+    max-width: @containerWidth;
+    width: auto;
+    margin-left: @SquareSize;
     margin-right: auto;
-    position: relative;
-    width: @containerWidth;
+    margin-top: 25px;
+    padding: 5%;
+    transition: margin .3s;
+    /*padding: 5%;
+    margin-left: 200px;
+    margin-right: auto;
+    width: @containerWidth;*/
     &:before, &:after{
     	content: "";
     	display: table;
     	line-height: 0;
     	clear: both;
-    } 
+    }
+    &.expand{
+        margin-left: 200px;
+    }
 }
 .sub-description{
     margin: 0 0 .5em 1em;
@@ -67,30 +105,31 @@ blockquote {
 h1, h2, h3, h4, h5, h6, hgroup{
     margin: .5em 0 .3em 0;
 }
+
 ul#navigator{
     margin: 0;
     padding: 0;
-    position: fixed;
     width: 50px;
     height:100%;
-    background: #363636;
-    text-align: left;
+    background: #C13832;
     transition: width .3s;
-    float:left;
+    max-width: 200px;
+    position: fixed;
+    overflow: hidden;
     &.expand{
         width: 200px;
     }
     li{
-        max-height: 50px;
+        max-height: @SquareSize;
         overflow: hidden;
         white-space: nowrap;
         div.icons{
             display: inline-block;
             float: left;
-            max-height: 50px;
-            max-width: 50px;
-            width: 50px;
-            height: 50px;
+            max-height: @SquareSize;
+            max-width: @SquareSize;
+            width: @SquareSize;
+            height: @SquareSize;
             overflow: hidden;
         }
         div.title{
@@ -110,7 +149,7 @@ ul#navigator{
             clear: both;
         }
         &:hover{
-            background: gray;
+            //background: gray;
         }
     }
     i{

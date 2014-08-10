@@ -48,19 +48,54 @@ blockquote p {
   font-style: italic;
   font-size: 18px;
 }
-.container {
-  padding: 5%;
+div#navigation-title {
+  background: #C13832;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  text-align: center;
+}
+div#navigation-title a {
+  width: 50px;
+  height: 100%;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-  width: 960px;
 }
-.container:before,
-.container:after {
+div#navigation-title a:before,
+div#navigation-title a:after {
   content: "";
   display: table;
   line-height: 0;
   clear: both;
+}
+div#navigation-title img {
+  height: 50px;
+  width: 50px;
+}
+div.container {
+  max-width: 960px;
+  width: auto;
+  margin-left: 50px;
+  margin-right: auto;
+  margin-top: 25px;
+  padding: 5%;
+  transition: margin .3s;
+  /*padding: 5%;
+    margin-left: 200px;
+    margin-right: auto;
+    width: @containerWidth;*/
+}
+div.container:before,
+div.container:after {
+  content: "";
+  display: table;
+  line-height: 0;
+  clear: both;
+}
+div.container.expand {
+  margin-left: 200px;
 }
 .sub-description {
   margin: 0 0 .5em 1em;
@@ -81,13 +116,13 @@ hgroup {
 ul#navigator {
   margin: 0;
   padding: 0;
-  position: fixed;
   width: 50px;
   height: 100%;
-  background: #363636;
-  text-align: left;
+  background: #C13832;
   transition: width .3s;
-  float: left;
+  max-width: 200px;
+  position: fixed;
+  overflow: hidden;
 }
 ul#navigator.expand {
   width: 200px;
@@ -123,11 +158,9 @@ ul#navigator a:after {
   line-height: 0;
   clear: both;
 }
-ul#navigator a:hover {
-  background: gray;
-}
 ul#navigator i {
   color: #FFFFFF;
   margin: 12px 12px 0 12px;
   font-size: 25px !important;
 }
+/*# sourceMappingURL=style.css.map */
